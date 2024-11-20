@@ -23,7 +23,7 @@ public class Main {
 			int optionChosen = option.nextInt();
 			
 			//Create a SWITCH statement - https://www.w3schools.com/java/java_switch.asp
-			switch(optionChosen ) {
+			switch(optionChosen) {
 			  case 1:
 					//Option 1: Encode the string 
 					//If Input is not encoded: Transform the input based on ASCII table		
