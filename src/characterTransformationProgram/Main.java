@@ -53,6 +53,7 @@ public class Main {
                     }
                     break;
 
+                //Look at this tutoria: https://www.youtube.com/watch?v=OqHoEAzdFGU
                 case 2: // Decode the string
                     if (encoded) {
                         System.out.println("You chose to decode the string.");
