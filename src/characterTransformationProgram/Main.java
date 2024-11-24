@@ -14,7 +14,8 @@ public class Main {
         Scanner myObj = new Scanner(System.in); // Create a Scanner object
 
         // Step 1: User enters a value
-        String userName = myObj.nextLine(); // Read user input
+        String userName = myObj.nextLine(); // Read user input        
+        List<Integer> asciiValues = new ArrayList<>(); // Store ASCII values after encoding
 
         // Step 2: Initialize variables
         boolean encoded = false; // To track if the string is encoded
@@ -54,7 +55,14 @@ public class Main {
 
                 case 2: // Decode the string
                     if (encoded) {
-                    	System.out.println("We have now encoded this.");
+                        System.out.println("You chose to decode the string.");
+                        // Convert ASCII values back to characters
+                        StringBuilder decodedString = new StringBuilder();
+                        for (int ascii : asciiValues) {
+                            decodedString.append((char) ascii); // Convert ASCII to character
+                        }
+                        userName = decodedString.toString(); // Update userName with the decoded string
+                        System.out.println("The decoded value is: " + userName);
                         encoded = false; // Mark as decoded
                     } else {
                         System.out.println("You cannot decode as it is already decoded.");
