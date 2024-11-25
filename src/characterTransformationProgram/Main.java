@@ -4,7 +4,7 @@ import java.nio.charset.StandardCharsets; //https://mkyong.com/java/how-to-conve
 import java.util.ArrayList;
 import java.util.List;
 
-//tRY THIS TUTORIAL FOR EXPERIENCE: https://www.youtube.com/watch?v=25kUc_ammbw&list=WL&index=7
+
 
 //GPT answer
 public class Main {
@@ -18,11 +18,12 @@ public class Main {
         List<Integer> asciiValues = new ArrayList<>(); // Store ASCII values after encoding
 
         // Step 2: Initialize variables
-        boolean encoded = false; // To track if the string is encoded
+        boolean encodedState = false; // To track if the string is encodedState
+        
 
         while (true) { // Loop until the user chooses to exit
             System.out.println("What you entered as a value is: " + userName);
-            System.out.println("The Status of the encoded is:" +encoded);
+            System.out.println("The Status of the encodedState is:" +encodedState);
             System.out.println("Press 1 to encode the string");
             System.out.println("Press 2 to decode the string");
             System.out.println("Press 3 to exit the program");
@@ -39,32 +40,40 @@ public class Main {
 
             switch (optionChosen) {
                 case 1: // Encode the string
-                    if (!encoded) {
+                    if (!encodedState) {
                         System.out.println("Entered 1: You want to encode the string");
                         byte[] bytes = userName.getBytes(StandardCharsets.US_ASCII);
                         List<Integer> result = new ArrayList<>();
                         for (byte aByte : bytes) {
                             result.add((int) aByte);
                         }
-                        System.out.println("The encoded value is now: " + result.toString());
-                        encoded = true; // Mark as encoded
+                        userName = result.toString();
+                        System.out.println("The encodedState value is now: " + userName);
+                        encodedState = true; // Mark as encodedState
                     } else {
-                        System.out.println("You cannot encode as it is already encoded.");
+                        System.out.println("You cannot encode as it is already encodedState.");
                     }
                     break;
 
-                //Look at this tutoria: https://www.youtube.com/watch?v=OqHoEAzdFGU
+                //Look at this tutorial: https://www.tutorialspoint.com/java-program-to-convert-ascii-code-to-string#:~:text=To%20convert%20ASCII%20to%20string,will%20return%20the%20associated%20character.
                 case 2: // Decode the string
-                    if (encoded) {
+                    if (encodedState) {
                         System.out.println("You chose to decode the string.");
                         // Convert ASCII values back to characters
-                        StringBuilder decodedString = new StringBuilder();
-                        for (int ascii : asciiValues) {
-                            decodedString.append((char) ascii); // Convert ASCII to character
+                        userName = userName.replaceAll("[\\[\\]]", ""); // Remove '[' and ']'
+                        String[] asciiValuesArray = userName.split(", "); // Split by comma and space
+
+                        String decodedString = ""; // Regular string to store the result
+                        // Convert each ASCII value back to character. For loop in array - https://www.w3schools.com/java/java_arrays_loop.asp
+                        for (String asciiValue : asciiValuesArray) {
+                            int ascii = Integer.parseInt(asciiValue); // Convert string to int
+                            decodedString += (char) ascii; // Convert all ints to char then add them together in decoded  string
                         }
-                        userName = decodedString.toString(); // Update userName with the decoded string
+
+                        userName = decodedString; // Update userName with the decoded string
                         System.out.println("The decoded value is: " + userName);
-                        encoded = false; // Mark as decoded
+                        encodedState = false; // Mark as decoded
+                        
                     } else {
                         System.out.println("You cannot decode as it is already decoded.");
                     }
@@ -84,4 +93,33 @@ public class Main {
     }
 }
 
+/* NOTES
+q:If I understand it in the for loop, for every value in asciiValuesArray we convert the value to from string to int, then char. Why char?
 
+ * What is ASCII? ASCII (American Standard Code for Information Interchange) is a standard for representing characters (like A, b, 1, @, etc.) using integer values. For example:
+
+The ASCII value of A is 65.
+The ASCII value of a is 97.
+The ASCII value of @ is 64.
+Why char?
+
+In Java, a char is a data type that represents a single character.
+When you cast an integer to a char, Java interprets that integer as an ASCII code and converts it to the corresponding character.
+
+E.G
+int ascii = 65;
+char character = (char) ascii; // character becomes 'A'
+
+After encoding, your userName contains ASCII values (e.g., [72, 101, 108, 108, 111] for "Hello").
+To decode:
+	Parse each value as an integer (int).
+	Convert the integer to its corresponding character using (char).
+	Combine all characters to reconstruct the original string.
+
+Why Not Skip char?
+If you don't use char:
+	The program would treat the numbers as integers, not characters.
+	For example, 72 would remain a number instead of becoming 'H'.
+
+ * 
+ */
