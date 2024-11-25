@@ -93,6 +93,13 @@ public class Main {
     }
 }
 
+//References - What you should know
+//How to make while and switch statements
+//How to convert to ascii
+//Know what is a List<Integer>
+//How to parse: https://www.oreilly.com/library/view/java-for-dummies/9781118239742/a70.html
+
+
 /* NOTES
 q:If I understand it in the for loop, for every value in asciiValuesArray we convert the value to from string to int, then char. Why char?
 
