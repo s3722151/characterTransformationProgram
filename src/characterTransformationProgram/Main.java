@@ -4,7 +4,7 @@ import java.nio.charset.StandardCharsets; //https://mkyong.com/java/how-to-conve
 import java.util.ArrayList;
 import java.util.List;
 
-
+//Look at this: https://www.youtube.com/watch?v=MxfmXw2O64E
 
 //GPT answer
 public class Main {
@@ -93,11 +93,16 @@ public class Main {
     }
 }
 
-//References - What you should know
-//How to make while and switch statements
-//How to convert to ascii
-//Know what is a List<Integer>
-//How to parse: https://www.oreilly.com/library/view/java-for-dummies/9781118239742/a70.html
+/* 
+References - What you should know
+	How to make while and switch statements
+	How to convert to ascii and back: to convert a string to ASCII then back, you convert the string to character then int then backwards.
+			https://www.tutorialspoint.com/java-program-to-convert-ascii-code-to-string
+	Know what is a List<Integer>
+	How to parse: https://www.oreilly.com/library/view/java-for-dummies/9781118239742/a70.html
+ */
+
+
 
 
 /* NOTES
