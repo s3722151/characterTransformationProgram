@@ -60,7 +60,7 @@ public class Main {
                     if (encodedState) {
                         System.out.println("You chose to decode the string.");
                         // Convert ASCII values back to characters
-                        userName = userName.replaceAll("[\\[\\]]", ""); // Remove '[' and ']'
+                        userName = userName.replaceAll("[\\[\\]]", ""); // Remove '[' and ']' https://beginnersbook.com/2015/05/java-ascii-to-string-conversion/
                         String[] asciiValuesArray = userName.split(", "); // Split by comma and space
 
                         String decodedString = ""; // Regular string to store the result
