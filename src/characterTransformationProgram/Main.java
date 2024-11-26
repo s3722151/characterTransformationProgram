@@ -60,7 +60,7 @@ public class Main {
                     if (encodedState) {
                         System.out.println("You chose to decode the string.");
                         // Convert ASCII values back to characters
-                        userName = userName.replaceAll("[\\[\\]]", ""); // Remove '[' and ']'
+                        userName = userName.replaceAll("[\\[\\]]", ""); // Remove '[' and ']' https://beginnersbook.com/2015/05/java-ascii-to-string-conversion/
                         String[] asciiValuesArray = userName.split(", "); // Split by comma and space
 
                         String decodedString = ""; // Regular string to store the result
@@ -93,6 +93,7 @@ public class Main {
     }
 }
 
+<<<<<<< HEAD
 /* 
 References - What you should know
 	How to make while and switch statements
@@ -103,18 +104,29 @@ References - What you should know
  */
 
 
+=======
+//References - What you should know
+//What is ASCII: https://www.techtarget.com/whatis/definition/ASCII-American-Standard-Code-for-Information-Interchange
+//How to make while and switch statements
+//How to convert to ascii
+  //Easier way: https://www.geeksforgeeks.org/print-given-sentence-equivalent-ascii-form/
+  //Initial way I did it (Opps): https://mkyong.com/java/how-to-convert-character-to-ascii-in-java/
+//Know how to convert from ASCII back to string 
+ //Similar but without decodedString: https://beginnersbook.com/2015/05/java-ascii-to-string-conversion/
+//Know what is a List<Integer>: https://www.geeksforgeeks.org/initializing-a-list-in-java/
+//How to parse: https://www.oreilly.com/library/view/java-for-dummies/9781118239742/a70.html
+>>>>>>> branch 'main' of https://github.com/s3722151/characterTransformationProgram.git
 
 
 /* NOTES
 q:If I understand it in the for loop, for every value in asciiValuesArray we convert the value to from string to int, then char. Why char?
 
  * What is ASCII? ASCII (American Standard Code for Information Interchange) is a standard for representing characters (like A, b, 1, @, etc.) using integer values. For example:
-
 The ASCII value of A is 65.
 The ASCII value of a is 97.
 The ASCII value of @ is 64.
-Why char?
 
+Why char?
 In Java, a char is a data type that represents a single character.
 When you cast an integer to a char, Java interprets that integer as an ASCII code and converts it to the corresponding character.
 
