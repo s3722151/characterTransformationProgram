@@ -93,7 +93,7 @@ public class Main {
     }
 }
 
-<<<<<<< HEAD
+
 /* 
 References - What you should know
 	How to make while and switch statements
@@ -104,7 +104,7 @@ References - What you should know
  */
 
 
-=======
+
 //References - What you should know
 //What is ASCII: https://www.techtarget.com/whatis/definition/ASCII-American-Standard-Code-for-Information-Interchange
 //How to make while and switch statements
@@ -115,7 +115,6 @@ References - What you should know
  //Similar but without decodedString: https://beginnersbook.com/2015/05/java-ascii-to-string-conversion/
 //Know what is a List<Integer>: https://www.geeksforgeeks.org/initializing-a-list-in-java/
 //How to parse: https://www.oreilly.com/library/view/java-for-dummies/9781118239742/a70.html
->>>>>>> branch 'main' of https://github.com/s3722151/characterTransformationProgram.git
 
 
 /* NOTES

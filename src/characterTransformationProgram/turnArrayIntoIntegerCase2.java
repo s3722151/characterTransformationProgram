@@ -24,4 +24,6 @@ public class turnArrayIntoIntegerCase2 {
 /* 
 Notes
 This was an idea for case 2. 
+- Issue is that the values are an array. 
+- Ideally the value should be an input 
 */
