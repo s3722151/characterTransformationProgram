@@ -1,18 +1,71 @@
 package characterTransformationProgram;
-import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;  // Import the Scanner class - https://www.w3schools.com/java/java_user_input.asp
+import java.util.*;
+import java.lang.*;
 
 public class finalAttempt {
+	
+	//Case 1: Method to convert string to ASCII which will be called upon
+	static String encodeToASCII(String input) {
+	    StringBuilder asciiString = new StringBuilder();//This helps in concatenating ints
+	    for (int i = 0; i < input.length(); i++) {
+	        int asciiValue = input.charAt(i);
+	        asciiString.append(asciiValue); // Append ASCII value
+	    }
+	    return asciiString.toString(); // Return the constructed ASCII string
+	}
+	//Case 2: Method to convert ASCII back to string
+	static String asciiToSentence(String input) {
+	    StringBuilder decodedString = new StringBuilder(); // To build the decoded sentence
+	    int num = 0;
 
+	    for (int i = 0; i < input.length(); i++) {
+	        // Append the current digit to num
+	        num = num * 10 + (input.charAt(i) - '0');
+
+	        // If num is within the ASCII printable character range
+	        if (num >= 32 && num <= 122) {
+	            char ch = (char) num; // Convert num to a character
+	            decodedString.append(ch); // Append to the result
+	            num = 0; // Reset num for the next character
+	        }
+	    }
+
+	    return decodedString.toString(); // Return the constructed sentence
+	}
+
+//Initial way which was incorrect
+	//    static void asciiToSentence(String input)
+	//    {
+	//        int num = 0;
+	//        for (int i = 0; i < len; i++) {
+	// 
+	//            // Append the current digit
+	//            num = num * 10 + (input.charAt(i) - '0');
+	// 
+	//            // If num is within the required range
+	//            if (num >= 32 && num <= 122) {
+	// 
+	//                // Convert num to char
+	//                char ch = (char)num;
+	//                //System.out.print(ch);
+	//                String s = Character.toString(ch);
+	//                input = s;
+	// 
+	//                // Reset num to 0
+	//                num = 0;
+	//            }
+	//        }
+	//    }
+	
+	
+		//Main Method
 	   public static void main(String[] args) {
 	        System.out.println("Please enter a value. E.g.'Hello World'");
 	        Scanner myObj = new Scanner(System.in); // Create a Scanner object
 
 	        // Step 1: User enters a value
 	        String userName = myObj.nextLine(); // Read user input        
-	        List<Integer> asciiValues = new ArrayList<>(); // Store ASCII values after encoding
 
 	        // Step 2: Initialize variables
 	        boolean encodedState = false; // To track if the string is encodedState
@@ -36,23 +89,21 @@ public class finalAttempt {
 	            }
 
 	            switch (optionChosen) {
-	                case 1: // Encode the string without using 
+	                case 1: // Encode the string: https://www.geeksforgeeks.org/print-given-sentence-equivalent-ascii-form/
 	                    if (!encodedState) {
 	                        System.out.println("Entered 1: You want to encode the string");
-	                        
-	                        System.out.println("The encodedState value is now: " + userName);
-	                        encodedState = true; // Mark as encodedState
+	                        userName = encodeToASCII(userName); // Call the method to encode
+	                        System.out.println("The encoded string is: " + userName);
+	                        encodedState = true;
 	                    } else {
 	                        System.out.println("You cannot encode as it is already encodedState.");
 	                    }
 	                    break;
 
-	                //Look at this tutorial: https://www.tutorialspoint.com/java-program-to-convert-ascii-code-to-string#:~:text=To%20convert%20ASCII%20to%20string,will%20return%20the%20associated%20character.
-	                case 2: // Decode the string
+	                case 2: // Decode the string: https://www.geeksforgeeks.org/convert-the-ascii-value-sentence-to-its-equivalent-string/?ref=oin_asr1
 	                    if (encodedState) {
-	                        System.out.println("You chose to decode the string.");
-	                        // Convert ASCII values back to characters
-	                        
+	                        System.out.println("You chose to decode the string.");	
+	                        userName = asciiToSentence(userName);  
 	                        System.out.println("The decoded value is: " + userName);
 	                        encodedState = false; // Mark as decoded
 	                        
@@ -77,31 +128,25 @@ public class finalAttempt {
 }
 
 /* 
- NOTES
- This is my attempting a way to convert a string to ASCII without first using bytes and placing it in an array. 
- */
+  NOTES
+This is my attempting a way to convert a string to ASCII without first using bytes and placing it in an array. 
 
-/* 
 References - What you should know
 	How to make while and switch statements
+	What is ASCII: https://www.techtarget.com/whatis/definition/ASCII-American-Standard-Code-for-Information-Interchange
+	How to convert to ascii
+  		Easier way: https://www.geeksforgeeks.org/print-given-sentence-equivalent-ascii-form/
+  				What is StringBuilder: https://www.youtube.com/watch?v=MpME5WGFvn4
+		Initial way I did it (Opps): https://mkyong.com/java/how-to-convert-character-to-ascii-in-java/
 	How to convert to ascii and back: to convert a string to ASCII then back, you convert the string to character then int then backwards.
 			https://www.tutorialspoint.com/java-program-to-convert-ascii-code-to-string
-	Know what is a List<Integer>
+			Similar but without decodedString: https://beginnersbook.com/2015/05/java-ascii-to-string-conversion/
+
+	Know what is a List<Integer>:  https://www.geeksforgeeks.org/initializing-a-list-in-java/
 	How to parse: https://www.oreilly.com/library/view/java-for-dummies/9781118239742/a70.html
  */
 
 
-
-//References - What you should know
-//What is ASCII: https://www.techtarget.com/whatis/definition/ASCII-American-Standard-Code-for-Information-Interchange
-//How to make while and switch statements
-//How to convert to ascii
-  //Easier way: https://www.geeksforgeeks.org/print-given-sentence-equivalent-ascii-form/
-  //Initial way I did it (Opps): https://mkyong.com/java/how-to-convert-character-to-ascii-in-java/
-//Know how to convert from ASCII back to string 
- //Similar but without decodedString: https://beginnersbook.com/2015/05/java-ascii-to-string-conversion/
-//Know what is a List<Integer>: https://www.geeksforgeeks.org/initializing-a-list-in-java/
-//How to parse: https://www.oreilly.com/library/view/java-for-dummies/9781118239742/a70.html
 
 
 /* NOTES
